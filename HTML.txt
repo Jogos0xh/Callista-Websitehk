@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callista - Votre Beauté, Notre Passion | Maroc</title>
+    <meta name="description" content="Découvrez la meilleure sélection de produits de beauté et cosmétiques au Maroc. Livraison gratuite 24-48h. Paiement sécurisé.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💄%3C/text%3E%3C/svg%3E">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header" id="header">
+        <div class="announcement-bar">
+            <div class="container">
+                <p class="announcement-text">
+                    <i class="fas fa-truck"></i> Livraison gratuite 24-48h au Maroc • 
+                    <i class="fas fa-gift"></i> 10% de réduction avec le code BIENVENUE10
+                </p>
+                <div class="language-currency">
+                    <select id="language" class="lang-select">
+                        <option value="fr">Français</option>
+                        <option value="ar">العربية</option>
+                    </select>
+                    <select id="currency" class="currency-select">
+                        <option value="mad">MAD</option>
+                        <option value="eur">EUR</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <nav class="main-nav">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <!-- Logo -->
+                    <div class="logo">
+                        <a href="/">
+                            <h1>Callista</h1>
+                            <span class="logo-subtitle">Beauty Maroc</span>
+                        </a>
+                    </div>
+
+                    <!-- Search Bar -->
+                    <div class="search-container">
+                        <form class="search-form" id="searchForm">
+                            <input 
+                                type="text" 
+                                class="search-input" 
+                                placeholder="Rechercher des produits, marques, conseils..."
+                                id="searchInput"
+                            >
+                            <button type="submit" class="search-btn">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                        <!-- Search Results Dropdown -->
+                        <div class="search-results" id="searchResults"></div>
+                    </div>
+
+                    <!-- User Actions -->
+                    <div class="user-actions">
+                        <button class="user-btn" id="userBtn">
+                            <i class="fas fa-user"></i>
+                            <span class="user-text">Compte</span>
+                        </button>
+                        <button class="wishlist-btn" id="wishlistBtn">
+                            <i class="fas fa-heart"></i>
+                            <span class="count">0</span>
+                        </button>
+                        <button class="cart-btn" id="cartBtn">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span class="count">0</span>
+                            <span class="cart-text">Panier</span>
+                        </button>
+                    </div>
+
+                    <!-- Mobile Menu Toggle -->
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Category Navigation -->
+        <nav class="category-nav">
+            <div class="container">
+                <ul class="category-menu">
+                    <li class="category-item">
+                        <a href="#maquillage" class="category-link">
+                            <i class="fas fa-lipstick"></i>
+                            <span>Maquillage</span>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu-content">
+                                <div class="mega-menu-column">
+                                    <h4>Teint</h4>
+                                    <ul>
+                                        <li><a href="#">Fondations</a></li>
+                                        <li><a href="#">Correcteurs</a></li>
+                                        <li><a href="#">Poudres</a></li>
+                                        <li><a href="#">Blush</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4>Lèvres</h4>
+                                    <ul>
+                                        <li><a href="#">Rouges à lèvres</a></li>
+                                        <li><a href="#">Gloss</a></li>
+                                        <li><a href="#">Crayons lèvres</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4>Yeux</h4>
+                                    <ul>
+                                        <li><a href="#">Mascaras</a></li>
+                                        <li><a href="#">Ombres à paupières</a></li>
+                                        <li><a href="#">Eyeliners</a></li>
+                                        <li><a href="#">Sourcils</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-banner">
+                                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 250'%3E%3Crect fill='%23E8B4B8' width='300' height='250'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='white' font-size='24' font-family='Arial'%3ENouvelle Collection%3C/text%3E%3C/svg%3E" alt="Promotion">
+                                    <h3>-25% sur la nouvelle collection</h3>
+                                    <a href="#" class="btn-primary">Découvrir</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="category-item">
+                        <a href="#soins" class="category-link">
+                            <i class="fas fa-spa"></i>
+                            <span>Soins</span>
+                        </a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#parfums" class="category-link">
+                            <i class="fas fa-spray-can"></i>
+                            <span>Parfums</span>
+                        </a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#cheveux" class="category-link">
+                            <i class="fas fa-cut"></i>
+                            <span>Cheveux</span>
+                        </a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#appareils" class="category-link">
+                            <i class="fas fa-tools"></i>
+                            <span>Appareils</span>
+                        </a>
+                    </li>
+                    <li class="category-item">
+                        <a href="#solaires" class="category-link">
+                            <i class="fas fa-sun"></i>
+                            <span>Solaires</span>
+                        </a>
+                    </li>
+                    <li class="category-item special">
+                        <a href="#americain" class="category-link">
+                            <i class="fas fa-star"></i>
+                            <span>Produits Américains</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <h3>Menu</h3>
+            <button class="close-menu" id="closeMenu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-menu-content">
+            <form class="mobile-search-form">
+                <input type="text" placeholder="Rechercher...">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+            <nav class="mobile-nav">
+                <ul>
+                    <li><a href="#maquillage">Maquillage</a></li>
+                    <li><a href="#soins">Soins</a></li>
+                    <li><a href="#parfums">Parfums</a></li>
+                    <li><a href="#cheveux">Cheveux</a></li>
+                    <li><a href="#appareils">Appareils</a></li>
+                    <li><a href="#solaires">Solaires</a></li>
+                    <li><a href="#americain">Produits Américains</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-slider">
+                <div class="hero-slide active">
+                    <div class="hero-content">
+                        <div class="container">
+                            <div class="hero-text">
+                                <h2 class="hero-title">Automne Beauty Collection</h2>
+                                <p class="hero-subtitle">Nouvelle collection hivernale avec jusqu'à -30% sur les soins hydratants</p>
+                                <div class="hero-features">
+                                    <span class="feature-tag"><i class="fas fa-check"></i> Produits authentiques</span>
+                                    <span class="feature-tag"><i class="fas fa-check"></i> Livraison gratuite</span>
+                                    <span class="feature-tag"><i class="fas fa-check"></i> Paiement à la livraison</span>
+                                </div>
+                                <a href="#collection" class="btn-primary btn-large">Découvrir la collection</a>
+                            </div>
+                            <div class="hero-image">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect fill='%23E8B4B8' width='600' height='400'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='white' font-size='32' font-family='Arial'%3ECollection Automne%3C/text%3E%3C/svg%3E" alt="Collection Automne">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-indicators">
+                <button class="indicator active"></button>
+                <button class="indicator"></button>
+                <button class="indicator"></button>
+            </div>
+        </section>
+
+        <!-- Trust Bar -->
+        <section class="trust-bar">
+            <div class="container">
+                <div class="trust-items">
+                    <div class="trust-item">
+                        <i class="fas fa-shipping-fast"></i>
+                        <div>
+                            <h4>Livraison 24-48h</h4>
+                            <p>Gratuite dès 299 MAD</p>
+                        </div>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <h4>Paiement Sécurisé</h4>
+                            <p>SSL & 3D Secure</p>
+                        </div>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-undo"></i>
+                        <div>
+                            <h4>Retours Faciles</h4>
+                            <p>30 jours pour changer d'avis</p>
+                        </div>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-headset"></i>
+                        <div>
+                            <h4>Support 7/7</h4>
+                            <p>WhatsApp & Chat en direct</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Beauty Quiz Section -->
+        <section class="beauty-quiz">
+            <div class="container">
+                <div class="quiz-content">
+                    <div class="quiz-text">
+                        <h3>🎯 Trouvez vos produits idéaux</h3>
+                        <h4>Quiz beauté personnalisé</h4>
+                        <p>Répondez à 5 questions et découvrez vos produits parfaitement adaptés à votre peau et vos besoins</p>
+                        <ul class="quiz-benefits">
+                            <li><i class="fas fa-check"></i> Analyse personnalisée</li>
+                            <li><i class="fas fa-check"></i> Produits testés et approuvés</li>
+                            <li><i class="fas fa-check"></i> Résultats garantis</li>
+                        </ul>
+                        <button class="btn-secondary btn-large" id="startQuiz">Commencer le quiz</button>
+                    </div>
+                    <div class="quiz-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23F3E8FF' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%236B46C1' font-size='24' font-family='Arial'%3EQuiz Beauté%3C/text%3E%3C/svg%3E" alt="Quiz Beauté">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Categories -->
+        <section class="featured-categories">
+            <div class="container">
+                <h3 class="section-title">Acheter par catégorie</h3>
+                <div class="categories-grid">
+                    <div class="category-card" data-category="maquillage">
+                        <div class="category-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23E8B4B8' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='white' font-size='20' font-family='Arial'%3EMaquillage%3C/text%3E%3C/svg%3E" alt="Maquillage">
+                        </div>
+                        <div class="category-info">
+                            <h4>Maquillage</h4>
+                            <p>Foundation, rouge à lèvres, mascara...</p>
+                            <span class="product-count">250+ produits</span>
+                        </div>
+                    </div>
+                    <div class="category-card" data-category="soins">
+                        <div class="category-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%2314B8A6' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='white' font-size='20' font-family='Arial'%3ESoins%3C/text%3E%3C/svg%3E" alt="Soins">
+                        </div>
+                        <div class="category-info">
+                            <h4>Soins</h4>
+                            <p>Visage, corps, hydratation...</p>
+                            <span class="product-count">180+ produits</span>
+                        </div>
+                    </div>
+                    <div class="category-card" data-category="parfums">
+                        <div class="category-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%236B46C1' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='white' font-size='20' font-family='Arial'%3EParfums%3C/text%3E%3C/svg%3E" alt="Parfums">
+                        </div>
+                        <div class="category-info">
+                            <h4>Parfums</h4>
+                            <p>Eaux de parfum, eaux de toilette...</p>
+                            <span class="product-count">120+ produits</span>
+                        </div>
+                    </div>
+                    <div class="category-card" data-category="cheveux">
+                        <div class="category-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23F59E0B' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='white' font-size='20' font-family='Arial'%3ECheveux%3C/text%3E%3C/svg%3E" alt="Cheveux">
+                        </div>
+                        <div class="category-info">
+                            <h4>Cheveux</h4>
+                            <p>Shampooing, soin, coloration...</p>
+                            <span class="product-count">90+ produits</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="featured-products">
+            <div class="container">
+                <div class="section-header">
+                    <h3 class="section-title">🔥 Produits les plus populaires</h3>
+                    <div class="filter-tabs">
+                        <button class="filter-tab active" data-filter="all">Tous</button>
+                        <button class="filter-tab" data-filter="visage">Visage</button>
+                        <button class="filter-tab" data-filter="levres">Lèvres</button>
+                        <button class="filter-tab" data-filter="yeux">Yeux</button>
+                    </div>
+                </div>
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be loaded dynamically -->
+                </div>
+                <div class="text-center">
+                    <button class="btn-outline btn-large" id="loadMore">Voir plus de produits</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brands Section -->
+        <section class="brands-section">
+            <div class="container">
+                <h3 class="section-title">Nos marques préférées</h3>
+                <div class="brands-slider">
+                    <div class="brands-track">
+                        <div class="brand-item">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 80'%3E%3Crect fill='%23f0f0f0' width='150' height='80'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23333' font-size='16' font-family='Arial'%3EMaybelline%3C/text%3E%3C/svg%3E" alt="Maybelline">
+                        </div>
+                        <div class="brand-item">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 80'%3E%3Crect fill='%23f0f0f0' width='150' height='80'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23333' font-size='16' font-family='Arial'%3EL'Oréal%3C/text%3E%3C/svg%3E" alt="L'Oréal">
+                        </div>
+                        <div class="brand-item">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 80'%3E%3Crect fill='%23f0f0f0' width='150' height='80'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23333' font-size='16' font-family='Arial'%3ENivea%3C/text%3E%3C/svg%3E" alt="Nivea">
+                        </div>
+                        <div class="brand-item">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 80'%3E%3Crect fill='%23f0f0f0' width='150' height='80'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23333' font-size='16' font-family='Arial'%3EGarnier%3C/text%3E%3C/svg%3E" alt="Garnier">
+                        </div>
+                        <div class="brand-item">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 80'%3E%3Crect fill='%23f0f0f0' width='150' height='80'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23333' font-size='16' font-family='Arial'%3EClinique%3C/text%3E%3C/svg%3E" alt="Clinique">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <div class="container">
+                <h3 class="section-title">Ce que disent nos clientes</h3>
+                <div class="testimonials-slider">
+                    <div class="testimonial active">
+                        <div class="testimonial-content">
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <p>"J'ai commandé plusieurs fois chez Callista, la qualité des produits est exceptionnelle et la livraison très rapide. Le service client est au top!"</p>
+                            <div class="testimonial-author">
+                                <strong>Sarah M.</strong>
+                                <span>Casablanca</span>
+                            </div>
+                            <div class="verified">
+                                <i class="fas fa-check-circle"></i> Achat vérifié
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <p>"Enfin une boutique qui propose des produits américains authentiques au Maroc! J'adore leur sélection et les prix sont très compétitifs."</p>
+                            <div class="testimonial-author">
+                                <strong>Amal K.</strong>
+                                <span>Rabat</span>
+                            </div>
+                            <div class="verified">
+                                <i class="fas fa-check-circle"></i> Achat vérifié
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter">
+            <div class="container">
+                <div class="newsletter-content">
+                    <div class="newsletter-text">
+                        <h3>Rejoignez la communauté Callista</h3>
+                        <p>Recevez nos conseils beauté, nouveautés et offres exclusives</p>
+                        <ul class="newsletter-benefits">
+                            <li><i class="fas fa-gift"></i> 10% de réduction sur votre première commande</li>
+                            <li><i class="fas fa-envelope"></i> Newsletter hebdomadaire avec nos meilleurs conseils</li>
+                            <li><i class="fas fa-star"></i> Accès anticipé aux ventes privées</li>
+                        </ul>
+                    </div>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <div class="form-group">
+                            <input type="email" placeholder="Votre adresse email" required>
+                            <button type="submit" class="btn-primary">S'inscrire</button>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" required>
+                            <span>J'accepte de recevoir des emails de Callista</span>
+                        </label>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Callista</h4>
+                    <p>Votre destination beauté n°1 au Maroc. Des produits authentiques, une livraison rapide et un service client exceptionnel.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Catégories</h4>
+                    <ul>
+                        <li><a href="#">Maquillage</a></li>
+                        <li><a href="#">Soins visage</a></li>
+                        <li><a href="#">S='50%25' text-anchor='middle' dy='.3em' fill='white' font-size='20' font-family='Arial'%3ECheveux%3C/text%3E%3C/svg%3E" alt="Cheveux">
+                        </div>
+                        <div class="category-info">
+                            <h4>Cheveux</h4>
+                            <p>Shampooing, soins, coloration...</p>
+                            <span class="product-count">90+ produits</span>
+                        </div>
+                    </div>
+                    <div class="category-card" data-category="appareils">
+                        <div class="category-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23EF4444' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='white' font-size='20' font-family='Arial'%3EAppareils%3C/text%3E%3C/svg%3E" alt="Appareils">
+                        </div>
+                        <div class="category-info">
+                            <h4>Appareils</h4>
+                            <p>Lisseurs, sèche-cheveux, épilateurs...</p>
+                            <span class="product-count">60+ produits</span>
+                        </div>
+                    </div>
+                    <div class="category-card" data-category="americain">
+                        <div class="category-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%238B5CF6' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='white' font-size='20' font-family='Arial'%3EAméricain%3C/text%3E%3C/svg%3E" alt="Produits Américains">
+                        </div>
+                        <div class="category-info">
+                            <h4>Produits Américains</h4>
+                            <p>Importés des USA, disponibles...</p>
+                            <span class="product-count">40+ produits</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="featured-products">
+            <div class="container">
+                <div class="section-header">
+                    <h3 class="section-title">🔥 Produits les plus populaires</h3>
+                    <div class="filter-tabs">
+                        <button class="filter-tab active" data-filter="all">Tous</button>
+                        <button class="filter-tab" data-filter="peau-seche">Peau sèche</button>
+                        <button class="filter-tab" data-filter="peau-grasse">Peau grasse</button>
+                        <button class="filter-tab" data-filter="anti-age">Anti-âge</button>
+                        <button class="filter-tab" data-filter="marocain">Marocain</button>
+                    </div>
+                </div>
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be loaded dynamically -->
+                </div>
+                <div class="text-center">
+                    <button class="btn-outline btn-large" id="loadMore">Voir plus de produits</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personalized Recommendations -->
+        <section class="personalized-section">
+            <div class="container">
+                <h3 class="section-title">🎯 Pour vous, <span id="userName">Chère cliente</span></h3>
+                <div class="recommendations-grid" id="recommendationsGrid">
+                    <!-- Personalized products will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Customer Reviews -->
+        <section class="customer-reviews">
+            <div class="container">
+                <h3 class="section-title">💬 Ce que disent nos clientes</h3>
+                <div class="reviews-carousel">
+                    <div class="review-card active">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'%3E%3Ccircle cx='25' cy='25' r='25' fill='%23E8B4B8'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='white' font-size='20' font-family='Arial'%3ESM%3C/text%3E%3C/svg%3E" alt="Sarah M." class="reviewer-avatar">
+                                <div>
+                                    <h4>Sarah M.</h4>
+                                    <p>Casablanca</p>
+                                </div>
+                            </div>
+                            <div class="review-rating">
+                                <span class="stars">⭐⭐⭐⭐⭐</span>
+                                <span class="rating">4.8</span>
+                            </div>
+                        </div>
+                        <p class="review-text">"J'ai commandé le sérum à la vitamine C et j'ai vu la différence après seulement 1 semaine! Ma peau est plus lumineuse et mes taches s'estompent visiblement. La livraison a été rapide et le service client excellent."</p>
+                        <div class="review-footer">
+                            <span class="verified">✓ Achat vérifié</span>
+                            <span class="date">Il y a 2 semaines</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button class="btn-primary">Voir tous les avis</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter">
+            <div class="container">
+                <div class="newsletter-content">
+                    <div class="newsletter-text">
+                        <h3>💌 Recevez nos offres exclusives</h3>
+                        <p>Inscrivez-vous à notre newsletter et recevez <strong>10% de réduction</strong> sur votre première commande!</p>
+                        <form class="newsletter-form" id="newsletterForm">
+                            <input type="email" placeholder="Votre adresse email" required>
+                            <button type="submit" class="btn-primary">Je m'inscris</button>
+                        </form>
+                        <p class="newsletter-disclaimer">*Promo valable une seule fois, non cumulable</p>
+                    </div>
+                    <div class="newsletter-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23F3E8FF' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%236B46C1' font-size='24' font-family='Arial'%3ENewsletter%3C/text%3E%3C/svg%3E" alt="Newsletter">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Callista</h4>
+                    <p>Votre destination beauté n°1 au Maroc. Des produits authentiques, une livraison rapide et un service client exceptionnel.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Catégories</h4>
+                    <ul>
+                        <li><a href="#maquillage">Maquillage</a></li>
+                        <li><a href="#soins">Soins visage</a></li>
+                        <li><a href="#cheveux">Soins cheveux</a></li>
+                        <li><a href="#parfums">Parfums</a></li>
+                        <li><a href="#appareils">Appareils</a></li>
+                        <li><a href="#americain">Produits Américains</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Service client</h4>
+                    <ul>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#livraison">Livraison</a></li>
+                        <li><a href="#retours">Retours</a></li>
+                        <li><a href="#paiement">Paiement</a></li>
+                        <li><a href="#contact">Contactez-nous</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Twin Center, Etage -2, Maarif, Casablanca 20000</p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:+212620231152">0620 231 152</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:contact@callista.ma">contact@callista.ma</a></p>
+                        <p><i class="fas fa-clock"></i> Lun-Sam: 9h-20h | Dim: 10h-18h</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Callista Maroc. Tous droits réservés. | <a href="#conditions">Conditions générales</a> | <a href="#confidentialite">Politique de confidentialité</a></p>
+                <p>Réalisé avec ❤️ pour les Marocaines</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

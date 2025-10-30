@@ -1,0 +1,724 @@
+/* Modern CSS Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* CSS Variables for Design System */
+:root {
+    /* Colors - Moroccan-inspired palette */
+    --primary: #E8B4B8;
+    --primary-dark: #D4A5A8;
+    --secondary: #6B46C1;
+    --accent: #14B8A6;
+    --warning: #F59E0B;
+    --error: #EF4444;
+    --success: #10B981;
+    
+    /* Neutrals */
+    --white: #FFFFFF;
+    --gray-50: #F9FAFB;
+    --gray-100: #F3F4F6;
+    --gray-200: #E5E7EB;
+    --gray-300: #D1D5DB;
+    --gray-400: #9CA3AF;
+    --gray-500: #6B7280;
+    --gray-600: #4B5563;
+    --gray-700: #374151;
+    --gray-800: #1F2937;
+    --gray-900: #111827;
+    
+    /* Typography */
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-secondary: 'Playfair Display', serif;
+    
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
+    
+    /* Border radius */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-2xl: 1.5rem;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    
+    /* Transitions */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --gray-50: #1F2937;
+        --gray-100: #374151;
+        --gray-200: #4B5563;
+        --gray-300: #6B7280;
+        --gray-400: #9CA3AF;
+        --gray-500: #D1D5DB;
+        --gray-600: #E5E7EB;
+        --gray-700: #F3F4F6;
+        --gray-800: #F9FAFB;
+        --gray-900: #FFFFFF;
+    }
+}
+
+/* Base styles */
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    color: var(--gray-800);
+    background-color: var(--white);
+    overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--space-md);
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
+h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
+h5 { font-size: clamp(1.125rem, 2vw, 1.25rem); }
+h6 { font-size: 1rem; }
+
+p {
+    margin-bottom: var(--space-md);
+    color: var(--gray-600);
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+a:hover {
+    color: var(--primary-dark);
+}
+
+/* Utility classes */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+/* Buttons */
+.btn-primary, .btn-secondary, .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-lg);
+    border: none;
+    border-radius: var(--radius-lg);
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition-normal);
+    font-size: 1rem;
+    min-height: 48px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: var(--white);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: var(--secondary);
+    color: var(--white);
+}
+
+.btn-secondary:hover {
+    background: #5A3AA8;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.btn-large {
+    padding: var(--space-lg) var(--space-xl);
+    font-size: 1.125rem;
+}
+
+/* Header */
+.header {
+    background: var(--white);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.top-bar {
+    background: var(--gray-50);
+    padding: var(--space-sm) 0;
+    font-size: 0.875rem;
+}
+
+.top-bar-content {
+    display: flex='50%25' text-anchor='middle' dy='.3em' fill='white' font-size='20' font-family='Arial'%3ECheveux%3C/text%3E%3C/svg%3E" alt="Cheveux">
+                        </div>
+                        <div class="category-info">
+                            <h4>Cheveux</h4>
+                            <p>Shampooing, soins, coloration...</p>
+                            <span class="product-count">90+ produits</span>
+                        </div>
+                    </div>
+                    <div class="category-card" data-category="appareils">
+                        <div class="category-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%238B5CF6' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='white' font-size='20' font-family='Arial'%3EAppareils%3C/text%3E%3C/svg%3E" alt="Appareils">
+                        </div>
+                        <div class="category-info">
+                            <h4>Appareils</h4>
+                            <p>Lisseurs, sèche-cheveux, épilateurs...</p>
+                            <span class="product-count">60+ produits</span>
+                        </div>
+                    </div>
+                    <div class="category-card" data-category="americain">
+                        <div class="category-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23EF4444' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='white' font-size='20' font-family='Arial'%3EAméricain%3C/text%3E%3C/svg%3E" alt="Produits Américains">
+                        </div>
+                        <div class="category-info">
+                            <h4>Produits Américains</h4>
+                            <p>Marques US exclusives...</p>
+                            <span class="product-count">40+ produits</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="featured-products">
+            <div class="container">
+                <div class="section-header">
+                    <h3 class="section-title">🔥 Produits les plus populaires</h3>
+                    <div class="section-filters">
+                        <button class="filter-btn active" data-filter="all">Tous</button>
+                        <button class="filter-btn" data-filter="visage">Peau sèche</button>
+                        <button class="filter-btn" data-filter="grasse">Peau grasse</button>
+                        <button class="filter-btn" data-filter="anti-age">Anti-âge</button>
+                        <button class="filter-btn" data-filter="marocain">Marocain</button>
+                    </div>
+                </div>
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be loaded dynamically -->
+                </div>
+                <div class="text-center">
+                    <button class="btn-outline btn-large" id="loadMore">Voir plus de produits</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personalized Recommendations -->
+        <section class="personalized-recommendations">
+            <div class="container">
+                <h3 class="section-title">🎯 Pour vous, Sarah</h3>
+                <p class="section-subtitle">Basé sur vos achats et préférences</p>
+                <div class="recommendations-grid">
+                    <div class="product-card recommended">
+                        <div class="product-badge">Recommandé</div>
+                        <div class="product-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 200'%3E%3Crect fill='%23F3E8FF' width='250' height='200'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%236B46C1' font-size='16' font-family='Arial'%3ECrème Hydratante%3C/text%3E%3C/svg%3E" alt="Crème Hydratante">
+                            <div class="product-overlay">
+                                <button class="btn-quick-view">👁️ Aperçu</button>
+                                <button class="btn-add-cart">🛒 Ajouter</button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-rating">
+                                <span class="stars">⭐⭐⭐⭐⭐</span>
+                                <span class="rating">4.8</span>
+                                <span class="reviews">(124 avis)</span>
+                            </div>
+                            <h4 class="product-title">Crème Hydratante Intense</h4>
+                            <p class="product-description">Hydratation 24h pour peau mixte</p>
+                            <div class="product-price">
+                                <span class="current-price">189 MAD</span>
+                                <span class="original-price">259 MAD</span>
+                                <span class="discount">-27%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customer Reviews -->
+        <section class="customer-reviews">
+            <div class="container">
+                <h3 class="section-title">💬 Ce que disent nos clientes</h3>
+                <div class="reviews-carousel">
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">SM</div>
+                                <div>
+                                    <h4>Sarah M.</h4>
+                                    <p>Casablanca</p>
+                                </div>
+                            </div>
+                            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                        <p class="review-text">"J'ai vu la différence après 1 semaine d'utilisation! Ma peau est plus lumineuse et mes taches s'estompent. Livraison rapide et produit authentique."</p>
+                        <div class="review-verified">
+                            <i class="fas fa-check-circle"></i> Achat vérifié • 2 semaines
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">AK</div>
+                                <div>
+                                    <h4>Amal K.</h4>
+                                    <p>Rabat</p>
+                                </div>
+                            </div>
+                            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                        <p class="review-text">"Texture légère, pénètre rapidement. Je l'utilise chaque matin sous ma crème hydratante. Le packaging est super pratique aussi!"</p>
+                        <div class="review-verified">
+                            <i class="fas fa-check-circle"></i> Achat vérifié • 1 mois
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">ZF</div>
+                                <div>
+                                    <h4>Zineb F.</h4>
+                                    <p>Marrakech</p>
+                                </div>
+                            </div>
+                            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                        <p class="review-text">"Enfin un sérum qui ne graisse pas la peau! Parfait pour ma peau mixte. J'ai aussi adoré les échantillons offerts avec ma commande."</p>
+                        <div class="review-verified">
+                            <i class="fas fa-check-circle"></i> Achat vérifié • 3 semaines
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter">
+            <div class="container">
+                <div class="newsletter-content">
+                    <div class="newsletter-text">
+                        <h3>💌 Restez belle, restez informée</h3>
+                        <p>Recevez nos dernières nouveautés, conseils beauté et offres exclusives</p>
+                        <ul class="newsletter-benefits">
+                            <li><i class="fas fa-gift"></i> <strong>10% de réduction</strong> sur votre première commande</li>
+                            <li><i class="fas fa-envelope"></i> Accès anticipé aux ventes privées</li>
+                            <li><i class="fas fa-heart"></i> Conseils beauté personnalisés</li>
+                        </ul>
+                    </div>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Votre prénom" required>
+                            <input type="email" placeholder="Votre email" required>
+                            <select>
+                                <option>Peau sèche</option>
+                                <option>Peau mixte</option>
+                                <option>Peau grasse</option>
+                                <option>Peau sensible</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-primary btn-large">Je m'inscris →</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Callista</h4>
+                    <p>Votre destination beauté n°1 au Maroc. Des produits authentiques, des conseils d'experts et une livraison rapide partout au Maroc.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Catégories</h4>
+                    <ul>
+                        <li><a href="#maquillage">Maquillage</a></li>
+                        <li><a href="#soins">Soins visage</a></li>
+                        <li><a href="#corps">Soins corps</a></li>
+                        <li><a href="#cheveux">Cheveux</a></li>
+                        <li><a href="#parfums">Parfums</a></li>
+                        <li><a href="#appareils">Appareils</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Service client</h4>
+                    <ul>
+                        <li><a href="#contact">Contactez-nous</a></li>
+                        <li><a href="#livraison">Livraison</a></li>
+                        <li><a href="#retours">Retours</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#taille">Guide des tailles</a></li>
+                        <li><a href="#conseils">Conseils beauté</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Mon compte</h4>
+                    <ul>
+                        <li><a href="#compte">Mon compte</a></li>
+                        <li><a href="#commandes">Mes commandes</a></li>
+                        <li><a href="#wishlist">Ma wishlist</a></li>
+                        <li><a href="#points">Points de fidélité</a></li>
+                        <li><a href="#newsletter">Newsletter</a></li>
+                        <li><a href="#parrainage">Parrainage</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Twin Center, Etage -2, Maarif, Casablanca</p>
+                        <p><i class="fas fa-phone"></i> 0620 231 152</p>
+                        <p><i class="fas fa-envelope"></i> contact@callista.ma</p>
+                        <p><i class="fas fa-clock"></i> Lun-Sam: 9h-20h</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-payments">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='25'%3E%3Crect width='40' height='25' fill='%23fff' rx='4'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-size='8'%3EVISA%3C/text%3E%3C/svg%3E" alt="Visa">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='25'%3E%3Crect width='40' height='25' fill='%23fff' rx='4'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-size='8'%3EMastercard%3C/text%3E%3C/svg%3E" alt="Mastercard">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='25'%3E%3Crect width='40' height='25' fill='%23fff' rx='4'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-size='8'%3ECash Plus%3C/text%3E%3C/svg%3E" alt="Cash Plus">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='25'%3E%3Crect width='40' height='25' fill='%23fff' rx='4'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-size='8'%3EWafaCash%3C/text%3E%3C/svg%3E" alt="WafaCash">
+                </div>
+                <div class="footer-legal">
+                    <p>&copy; 2024 Callista Maroc. Tous droits réservés.</p>
+                    <div class="legal-links">
+                        <a href="#conditions">Conditions générales</a>
+                        <a href="#confidentialite">Politique de confidentialité</a>
+                        <a href="#cookies">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <!-- Product Quick View Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div id="productModalContent">
+                <!-- Product details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Mon Panier</h3>
+            <button class="cart-close">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be loaded here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total: <strong id="cartTotal">0 MAD</strong></span>
+            </div>
+            <button class="btn-primary btn-large" id="checkoutBtn">Commander</button>
+            <button class="btn-outline btn-large" id="continueShopping">Continuer mes achats</button>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal">
+        <div class="search-container">
+            <div class="search-header">
+                <input type="text" id="searchInput" placeholder="Rechercher un produit, une marque...">
+                <button class="search-close">&times;</button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <!-- Search results will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
+250 250'%3E%3Crect fill='%23E0F2FE' width='250' height='250'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%230284C7' font-size='16' font-family='Arial'%3EGel Nettoyant%3C/text%3E%3C/svg%3E" alt="Gel Nettoyant">
+
+<div class="product-info"><h4>
+<div class="product-rating"><span class="stars">
+<span class="rating">
+<span class="reviews">
+
+<p class="product-description">
+<div class="product-price"><span class="current-price">
+<span class="original-price">
+<span class="discount">
+
+<button class="btn-primary btn-add-cart">
+    <!-- Customer Reviews -->
+    <section class="customer-reviews">
+        <div class="container">
+            <h3 class="section-title">💬 Ce que disent nos clientes</h3>
+            <div class="reviews-carousel">
+                <div class="review-card active">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">SM</div>
+                            <div>
+                                <h4>Sarah M.</h4>
+                                <p>Casablanca</p>
+                            </div>
+                        </div>
+                        <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <p class="review-text">"J'ai vu la différence après 1 semaine d'utilisation! Ma peau est plus lumineuse et mes taches s'estompent. Livraison rapide et produit authentique."</p>
+                    <div class="review-footer">
+                        <span class="verified">✓ Achat vérifié</span>
+                        <span class="date">Il y a 2 semaines</span>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">AK</div>
+                            <div>
+                                <h4>Amal K.</h4>
+                                <p>Rabat</p>
+                            </div>
+                        </div>
+                        <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <p class="review-text">"Texture légère, pénètre rapidement. Je l'utilise chaque matin sous ma crème hydratante. Le packaging est super pratique aussi!"</p>
+                    <div class="review-footer">
+                        <span class="verified">✓ Achat vérifié</span>
+                        <span class="date">Il y a 1 mois</span>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">ZF</div>
+                            <div>
+                                <h4>Zineb F.</h4>
+                                <p>Marrakech</p>
+                            </div>
+                        </div>
+                        <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <p class="review-text">"Enfin un sérum qui ne graisse pas la peau! Parfait pour ma peau mixte. J'ai aussi adoré les échantillons offerts avec ma commande."</p>
+                    <div class="review-footer">
+                        <span class="verified">✓ Achat vérifié</span>
+                        <span class="date">Il y a 3 semaines</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h3>💌 Restez belle, restez informée</h3>
+                    <p>Recevez nos dernières nouveautés, conseils beauté et offres exclusives directement dans votre boîte email!</p>
+                    <ul class="newsletter-benefits">
+                        <li><i class="fas fa-gift"></i> <strong>10% de réduction</strong> sur votre première commande</li>
+                        <li><i class="fas fa-envelope"></i> Accès anticipé aux ventes privées</li>
+                        <li><i class="fas fa-heart"></i> Conseils beauté personnalisés selon votre type de peau</li>
+                    </ul>
+                </div>
+                <form class="newsletter-form" id="newsletterForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Votre prénom" required>
+                        <input type="email" placeholder="Votre adresse email" required>
+                        <select>
+                            <option>Peau sèche</option>
+                            <option>Peau mixte</option>
+                            <option>Peau grasse</option>
+                            <option>Peau sensible</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-primary btn-large">Je m'inscris →</button>
+                    <p class="newsletter-disclaimer">Désinscription possible à tout moment. Voir notre politique de confidentialité.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Callista</h4>
+                <p>Votre destination beauté n°1 au Maroc. Des produits authentiques, des conseils d'experts et une livraison rapide partout au Maroc.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Catégories</h4>
+                <ul>
+                    <li><a href="#maquillage">Maquillage</a></li>
+                    <li><a href="#soins">Soins visage</a></li>
+                    <li><a href="#corps">Soins corps</a></li>
+                    <li><a href="#cheveux">Cheveux</a></li>
+                    <li><a href="#parfums">Parfums</a></li>
+                    <li><a href="#appareils">Appareils</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Service client</h4>
+                <ul>
+                    <li><a href="#contact">Contactez-nous</a></li>
+                    <li><a href="#livraison">Livraison</a></li>
+                    <li><a href="#retours">Retours</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#taille">Guide des tailles</a></li>
+                    <li><a href="#conseils">Conseils beauté</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Mon compte</h4>
+                <ul>
+                    <li><a href="#compte">Mon compte</a></li>
+                    <li><a href="#commandes">Mes commandes</a></li>
+                    <li><a href="#wishlist">Ma wishlist</a></li>
+                    <li><a href="#points">Points de fidélité</a></li>
+                    <li><a href="#newsletter">Newsletter</a></li>
+                    <li><a href="#parrainage">Parrainage</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt"></i> Twin Center, Etage -2, Maarif, Casablanca 20000</p>
+                    <p><i class="fas fa-phone"></i> 0620 231 152</p>
+                    <p><i class="fas fa-envelope"></i> contact@callista.ma</p>
+                    <p><i class="fas fa-clock"></i> Lun-Sam: 9h-20h | Dim: 10h-18h</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-payments">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='25'%3E%3Crect width='40' height='25' fill='%23fff' rx='4'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-size='8'%3EVISA%3C/text%3E%3C/svg%3E" alt="Visa">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='25'%3E%3Crect width='40' height='25' fill='%23fff' rx='4'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-size='8'%3EMastercard%3C/text%3E%3C/svg%3E" alt="Mastercard">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='25'%3E%3Crect width='40' height='25' fill='%23fff' rx='4'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-size='8'%3ECash Plus%3C/text%3E%3C/svg%3E" alt="Cash Plus">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='25'%3E%3Crect width='40' height='25' fill='%23fff' rx='4'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-size='8'%3EWafaCash%3C/text%3E%3C/svg%3E" alt="WafaCash">
+            </div>
+            <div class="footer-legal">
+                <p>&copy; 2024 Callista Maroc. Tous droits réservés.</p>
+                <div class="legal-links">
+                    <a href="#conditions">Conditions générales</a>
+                    <a href="#confidentialite">Politique de confidentialité</a>
+                    <a href="#cookies">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Modals -->
+<!-- Product Quick View Modal -->
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="productModal">
+        <button class="modal-close">&times;</button>
+        <div class="modal-content" id="modalContent">
+            <!-- Product details will be loaded here -->
+        </div>
+    </div>
+</div>
+
+<!-- Cart Sidebar -->
+<div class="cart-overlay" id="cartOverlay">
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Mon Panier</h3>
+            <button class="cart-close">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be loaded here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-summary">
+                <div class="cart-total">
+                    <span>Total: <strong id="cartTotal">0 MAD</strong></span>
+                </div>
+                <button class="btn-primary btn-large" id="checkoutBtn">Commander</button>
+                <button class="btn-outline btn-large" id="continueShopping">Continuer mes achats</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Back to Top -->
+<button class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- Scripts -->
+<script src="script.js"></script>
